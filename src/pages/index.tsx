@@ -1,7 +1,14 @@
-export default function Home () {
+import { Card } from '../components/Card';
+import { Navbar } from '../components/Navbar';
+
+export default function Home() {
   return (
     <>
-      <h1 className='font-bold underline'>Hello world!</h1>
+      <Navbar />
+      <main className='pt-16 px-6 flex flex-wrap gap-4'>
+        <Card imageUrl='/assets/gato.png' />
+        <Card imageUrl='/assets/gato.png' />
+      </main>
     </>
-  )
+  );
 }
