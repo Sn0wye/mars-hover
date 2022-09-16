@@ -28,7 +28,16 @@ export default function Home({ initialData }: Props) {
     <>
       <Navbar />
       <main className='pt-16 px-6 flex flex-wrap gap-4'>
-        {data && data.photos.map((item) => <Card key={item.id} photo={item} />)}
+        {data &&
+          data.photos.map((item) => (
+            <Card
+              key={item.id}
+              camera={item.camera}
+              date={item.earth_date}
+              imgSrc={item.img_src}
+              rover={item.rover}
+            />
+          ))}
       </main>
     </>
   );
