@@ -43,12 +43,11 @@ export const Card = ({ imageUrl }: Props) => {
         </div>
       </div>
 
-      {isImageFullscreen && (
-        <FullscreenImage
-          imageUrl={imageUrl}
-          onRequestExit={onToggleFullscreen}
-        />
-      )}
+      <FullscreenImage
+        show={isImageFullscreen}
+        imageUrl={imageUrl}
+        onRequestExit={onToggleFullscreen}
+      />
     </>
   );
 };
