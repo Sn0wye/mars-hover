@@ -28,10 +28,7 @@ export default function Home({ initialData }: Props) {
     <>
       <Navbar />
       <main className='pt-16 px-6 flex flex-wrap gap-4'>
-        {data &&
-          data.photos.map((item) => (
-            <Card key={item.id} imageUrl={item.img_src} />
-          ))}
+        {data && data.photos.map((item) => <Card key={item.id} photo={item} />)}
       </main>
     </>
   );
