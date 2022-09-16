@@ -21,6 +21,7 @@ export default class MyDocument extends Document {
             sizes='any'
             type='image/svg+xml'
           />
+          <title>Mars Rover Photos</title>
         </Head>
         <body>
           <Main />
