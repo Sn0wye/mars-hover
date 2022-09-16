@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { GetStaticProps } from 'next';
 import type { Photo } from '../@types';
 import { Card } from '../components/Card';
 import { Loading } from '../components/Loading';
@@ -9,9 +10,14 @@ interface Data {
   photos: Photo[];
 }
 
-export default function Home() {
-  const { data, isFetching } = useQuery<Data>(['teste'], fetchPhotos, {
+interface Props {
+  initialData: Data;
+}
+
+export default function Home({ initialData }: Props) {
+  const { data, isFetching } = useQuery<Data>(['photos'], fetchPhotos, {
     refetchOnWindowFocus: false,
+    initialData,
   });
 
   if (isFetching) {
@@ -30,3 +36,12 @@ export default function Home() {
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const data: Data = await fetchPhotos();
+  return {
+    props: {
+      initialData: data,
+    },
+  };
+};
