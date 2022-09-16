@@ -18,4 +18,5 @@ export interface Photo {
   img_src: string;
   camera: Camera;
   rover: Rover;
+  earth_date: string;
 }
